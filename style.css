@@ -1,7 +1,7 @@
 @import url('body.css');
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&display=swap');
 
-/* Reset básico */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +15,7 @@ body {
   line-height: 1.6;
 }
 
-/* Container */
+/* CONTAINER */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -26,12 +26,12 @@ body {
   flex-wrap: wrap;
 }
 
-/* Logo */
+/* LOGO */
 .logo {
   width: 80px;
 }
 
-/* Cabeçalho */
+/* HEADER */
 header {
   background-color: #001e62;
   color: #fff;
@@ -60,11 +60,11 @@ header::after {
 }
 
 header h1 {
-  margin: 0;
   font-size: 2rem;
+  margin: 0;
 }
 
-/* Navegação */
+/* TOGGLE MENU */
 .menu-toggle {
   display: none;
   width: 25px;
@@ -85,47 +85,36 @@ header h1 {
   transition: all 0.4s ease;
 }
 
-.menu-toggle span:nth-child(1) {
-  top: 0;
-}
+.menu-toggle span:nth-child(1) { top: 0; }
+.menu-toggle span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.menu-toggle span:nth-child(3) { bottom: 0; }
 
-.menu-toggle span:nth-child(2) {
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.menu-toggle span:nth-child(3) {
-  bottom: 0;
-}
-
-/* Animação quando aberto */
 .menu-toggle.open span:nth-child(1) {
   transform: rotate(45deg);
   top: 50%;
 }
-
 .menu-toggle.open span:nth-child(2) {
   opacity: 0;
 }
-
 .menu-toggle.open span:nth-child(3) {
   transform: rotate(-45deg);
   bottom: 50%;
 }
 
+/* NAV */
 nav ul {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
   justify-content: flex-end;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 nav a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  transition: transform 0.4s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 nav a:hover {
@@ -135,30 +124,27 @@ nav a:hover {
   cursor: pointer;
 }
 
-/* Frase */
-.frases {
+/* FRASES */
+.sessao_frases {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
 }
 
 .frase {
-  margin-top: 2rem;
   font-family: "Lexend", sans-serif;
   font-weight: 600;
   font-size: 1.6rem;
-  color: #003078; /* azul escuro, mais suave */
+  color: #003078;
   text-align: center;
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
   padding: 1rem 2rem;
-  background: rgba(255, 204, 5, 0.15); /* amarelo claro translúcido */
+  background: rgba(255, 204, 5, 0.15);
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(255, 204, 5, 0.25);
   transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
-  opacity: 1;
   line-height: 1.4;
+  margin: 2rem auto 4rem auto;
 }
 
 .frase:hover {
@@ -168,11 +154,11 @@ nav a:hover {
   cursor: default;
 }
 
-/* Carrossel */
+/* CARROSSEL */
 .carousel {
   display: flex;
   justify-content: center;
-  margin: 2rem 0;
+  margin: 0 auto 4rem auto;
 }
 
 .carousel-container {
@@ -204,7 +190,7 @@ nav a:hover {
   border-radius: 12px;
 }
 
-/* Botões do carrossel */
+/* BOTÕES DO CARROSSEL */
 .carousel-container .prev,
 .carousel-container .next {
   position: absolute;
@@ -227,15 +213,10 @@ nav a:hover {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-.carousel-container .prev {
-  left: 10px;
-}
+.carousel-container .prev { left: 10px; }
+.carousel-container .next { right: 10px; }
 
-.carousel-container .next {
-  right: 10px;
-}
-
-/* Seção Sobre */
+/* SOBRE */
 .about {
   background-color: #fff;
   padding: 2rem 1rem;
@@ -248,7 +229,7 @@ nav a:hover {
   margin-bottom: 1rem;
 }
 
-/* Rodapé */
+/* RODAPÉ */
 footer {
   background-color: #001e62;
   color: #fff;
@@ -257,27 +238,12 @@ footer {
   margin-top: 2rem;
 }
 
-/* --- MOBILE --- */
+/* --- RESPONSIVO --- */
 @media (max-width: 768px) {
-
   .frase {
-  margin-top: 2rem;
-  font-family: "Lexend", sans-serif;
-  font-weight: 600;
-  font-size: 1.6rem;
-  color: #003078; /* azul escuro, mais suave */
-  text-align: center;
-  max-width: 800px;
-  margin-left: 20px;
-  margin-right: 20px;
-  padding: 1rem 2rem;
-  background: rgba(255, 204, 5, 0.15); /* amarelo claro translúcido */
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(255, 204, 5, 0.25);
-  transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
-  opacity: 1;
-  line-height: 1.4;
-}
+    font-size: 1.3rem;
+    margin: 2rem 1rem 3rem;
+  }
 
   .carousel-container {
     height: 200px;
@@ -312,6 +278,24 @@ footer {
     max-height: 500px;
     opacity: 1;
     margin-top: 2rem;
+  }
+
+  /* Delay de entrada nos links do menu mobile */
+  nav ul.show a {
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeInLink 0.4s ease forwards;
+  }
+
+  nav ul.show a:nth-child(1) { animation-delay: 1s; }
+  nav ul.show a:nth-child(2) { animation-delay: 1.2s; }
+  nav ul.show a:nth-child(3) { animation-delay: 1.4s; }
+
+  @keyframes fadeInLink {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   nav a {

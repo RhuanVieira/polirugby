@@ -5,7 +5,15 @@ const navMenu = document.querySelector('nav ul');
 toggleButton.addEventListener('click', () => {
   navMenu.classList.toggle('show');
   toggleButton.classList.toggle('open'); // anima o botão
+
+  if (!navMenu.classList.contains('show')) {
+    document.querySelectorAll('nav a').forEach(link => {
+      link.style.opacity = '0';
+      link.style.transform = 'translateY(-10px)';
+    });
+  }
 });
+
 
 // CARROSSEL DE SLIDES
 let currentSlide = 0;
